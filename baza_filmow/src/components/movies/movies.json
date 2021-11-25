@@ -1,0 +1,84 @@
+{
+  "movies": [
+    {
+      "titlePL": "Skazani na Shawnshank",
+      "titleEN": "The Shawnshank Redemption",
+      "year": "1994",
+      "poster": "https://fwcdn.pl/fpo/10/48/1048/6925401.3.jpg",
+      "rate": 8.76,
+      "ratingsAmount": 899961,
+      "genre": "Dramat",
+      "director": "Frank Darabont"
+    },
+    {
+      "titlePL": "Nietykalni",
+      "titleEN": "Intouchables",
+      "year": "2011",
+      "poster": "https://fwcdn.pl/fpo/33/90/583390/7441162.3.jpg",
+      "rate": 8.62,
+      "ratingsAmount": 659194,
+      "genre": "Biograficzny / Dramat / Komedia",
+      "director": "Olivier Nakache / Eric Toledano"
+    },
+    {
+      "titlePL": "Zielona Mila",
+      "titleEN": "The Green Mile",
+      "year": "1999",
+      "poster": "https://fwcdn.pl/fpo/08/62/862/7517878.3.jpg",
+      "rate": 8.6,
+      "ratingsAmount": 981031,
+      "genre": "Dramat",
+      "director": "Frank Darabont"
+    },
+    {
+      "titlePL": "Ojciec chrzestny",
+      "titleEN": "The Godfather",
+      "year": "1972",
+      "poster": "https://fwcdn.pl/fpo/10/89/1089/7196615.3.jpg",
+      "rate": 8.59,
+      "ratingsAmount": 531551,
+      "genre": "Dramat / Gangsterski",
+      "director": "Francis Ford Coppola"
+    },
+    {
+      "titlePL": "Dwunastu gniewnych ludzi",
+      "titleEN": "12 Angry Men",
+      "year": "1957",
+      "poster": "https://fwcdn.pl/fpo/07/01/30701/7492190.3.jpg",
+      "rate": 8.56,
+      "ratingsAmount": 217206,
+      "genre": "Dramat sądowy",
+      "director": "Sidney Lumet"
+    },
+    {
+      "titlePL": "Forrest Gump",
+      "titleEN": "Forrest Gump",
+      "year": "1994",
+      "poster": "https://fwcdn.pl/fpo/09/98/998/7314731.3.jpg",
+      "rate": 8.52,
+      "ratingsAmount": 972575,
+      "genre": "Dramat / Komedia",
+      "director": "Robert Zemeckis"
+    },
+    {
+      "titlePL": "Lot nad kukułczym gniazdem",
+      "titleEN": "One Flew Over the Cuckoo's Nest",
+      "year": "1975",
+      "poster": "https://fwcdn.pl/fpo/10/19/1019/7386645.3.jpg",
+      "rate": 8.44,
+      "ratingsAmount": 391967,
+      "genre": "Dramat / Psychologiczny",
+      "director": "Miloš Forman"
+    },
+    {
+      "titlePL": "Ojciec chrzestny II",
+      "titleEN": "The Godfather: Part II",
+      "year": "1974",
+      "poster": "https://fwcdn.pl/fpo/10/90/1090/7196616.3.jpg",
+      "rate": 8.38,
+      "ratingsAmount": 274775,
+      "genre": "Dramat / Gangsterski",
+      "director": "Francis Ford Coppola"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+.navbar_container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: center;
+  width: 15rem;
+  height: auto;
+}
+
+.logo {
+  width: 11.5rem;
+  height: auto;
+}
+
+.searchbar {
+  width: auto;
+  height: auto;
+}

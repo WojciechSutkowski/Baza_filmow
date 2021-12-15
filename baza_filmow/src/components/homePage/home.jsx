@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import MoviesContainer from "./moviesContainer";
+import MoviesContainer from "./moviesContainer/moviesContainer";
 
-class Movie extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,4 +50,4 @@ class Movie extends Component {
   }
 }
 
-export default Movie;
+export default Home;

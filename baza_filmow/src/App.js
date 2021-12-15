@@ -1,8 +1,12 @@
 import Navbar from "./components/navbar/navbar";
-import Movie from "./components/movies/movie";
+import Home from "./components/homePage/home";
 import Footer from "./components/footer/footer";
-// import NotFound from "./components/notFound";
-// import { Redirect, Route, Switch } from "react-router-dom";
+import NotFound from "./components/notFound/notFound";
+import SignIn from "./components/signin/signin";
+import SignUp from "./components/signin/signup/signup";
+import AddMovie from "./components/addMovie/addMovie";
+import Details from "./components/movieDetails/movieDetails";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -13,19 +17,18 @@ function App() {
       </div>
 
       <div className="content">
-        <Movie />
-      </div>
-
-      {/* <div className="container">
-        <div className="content">
-          <Movie />
+        <BrowserRouter>
           <Switch>
-            <Route path="/home" component={Movie} />
-            <Route path="not-found" component={NotFound} />
+            <Route exact path="/" component={Home} />
+            <Route path="/details" component={Details} />
+            <Route path="/add" component={AddMovie} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/not-found" component={NotFound} />
             <Redirect to="/not-found" />
           </Switch>
-        </div>
-      </div> */}
+        </BrowserRouter>
+      </div>
 
       <div className="footer">
         <Footer />

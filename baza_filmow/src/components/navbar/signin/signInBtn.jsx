@@ -1,20 +1,20 @@
 import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
-import logo from "./logo.png";
+import "./signInBtn.css";
 
-function Logo() {
+function SignInBtn() {
   return (
     <BrowserRouter>
       <Link
-        className="logo"
+        className="signin"
         onClick={() => {
-          window.location.href = "/";
+          window.location.href = "/signin";
         }}
       >
-        <img src={logo} alt="Logo" />
+        Sign In
       </Link>
     </BrowserRouter>
   );
 }
 
-export default Logo;
+export default SignInBtn;

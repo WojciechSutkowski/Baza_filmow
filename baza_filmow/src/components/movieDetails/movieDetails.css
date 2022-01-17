@@ -1,141 +1,22 @@
 .details_container {
-  display: grid;
-  width: 70vw;
-  height: 70vh;
-  background-color: white;
-  border: 5px solid #ffcc00;
-  border-radius: 5px;
-  margin-left: 15vw;
-  margin-right: 15vh;
-  grid-template-columns: 18vw 30vw 18vw;
-  grid-template-rows: 20vh 10vh 10vh 10vh;
-  padding: 5vh 2vw;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  align-items: center;
 }
 
-.details_container p {
-  color: black;
-  position: relative;
+.details_title {
+  font-size: 36px;
+  margin-bottom: 3vh;
 }
 
 .details_poster {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 7;
-  justify-self: center;
-  align-self: center;
-  width: 100%;
+  height: 488px;
+  width: 330px;
+  margin-bottom: 2vh;
 }
 
-.details_poster img {
-  height: auto;
-  width: 100%;
-}
-
-.details_titles {
-  height: 100%;
-  width: 100%;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  text-decoration: none;
-  padding-left: 2vw;
-}
-
-.details_titlePL {
-  text-align: left;
-  height: 50%;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  font-size: 34px;
-  font-weight: bold;
-  color: black;
-}
-
-.details_titleEN {
-  text-align: left;
-  height: 50%;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  font-size: 26px;
-  color: black;
-}
-
-.details_year {
-  height: 100%;
-  width: 100%;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  padding-left: 2vw;
+.details_description {
+  width: 40%;
   font-size: 20px;
-  text-align: center;
-}
-
-.details_movieYear {
-  color: black;
-  text-align: left;
-  padding-top: 4vh;
-}
-
-.details_rating {
-  width: 100%;
-  height: 100%;
-  font-size: 20px;
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 4;
-}
-
-.details_rate {
-  height: 80%;
-  width: 100%;
-  font-size: 100px;
-  color: black;
-  text-align: left;
-}
-
-.details_ratingsAmount {
-  height: 20%;
-  width: 100%;
-  font-size: 20px;
-  color: black;
-  text-align: left;
-}
-
-.details_genre {
-  width: auto;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
-  font-size: 20px;
-  padding-left: 2vw;
-  padding-top: 4vh;
-}
-
-.details_movieGenre {
-  color: black;
-  text-align: left;
-}
-
-.details_director {
-  width: auto;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
-  font-size: 20px;
-  padding-left: 2vw;
-}
-
-.details_movieDirector {
-  color: black;
-  text-align: left;
-  padding-top: 4vh;
 }

@@ -1,8 +1,11 @@
 import React from "react";
-import "./footer.css";
 
 const Footer = () => {
-  return <p>Copyrights © Wojciech Sutkowski | 2021</p>;
+  return (
+    <div className="author-info">
+      <p>Copyrights © | Wojciech Sutkowski | 2022</p>
+    </div>
+  );
 };
 
 export default Footer;

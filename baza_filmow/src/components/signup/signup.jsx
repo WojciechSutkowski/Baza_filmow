@@ -7,7 +7,7 @@ const axios = require("axios");
 class SignUp extends Component {
   state = {
     account: {
-      username: "",
+      name: "",
       email: "",
       password: "",
     },
@@ -27,8 +27,8 @@ class SignUp extends Component {
       errors.email = "Email is required!";
     }
 
-    if (account.username.trim() === "") {
-      errors.username = "Username is required!";
+    if (account.name.trim() === "") {
+      errors.name = "Name is required!";
     }
 
     if (account.password.trim() === "") {
@@ -49,9 +49,9 @@ class SignUp extends Component {
 
     axios({
       method: "post",
-      url: "https://pr04.herokuapp.com/api/user/create",
+      url: "https://pr-movies.herokuapp.com/api/user/create",
       data: {
-        name: this.state.account.username,
+        name: this.state.account.name,
         email: this.state.account.email,
         password: this.state.account.password,
       },
@@ -61,7 +61,7 @@ class SignUp extends Component {
       })
       .catch((error) => {
         const errors = {};
-        errors.password = "Given username doesn't exists or password is wrong!";
+        errors.password = "Given username or email exists!";
         this.setState({ errors: errors || {} });
         console.log(error);
       });
@@ -85,7 +85,6 @@ class SignUp extends Component {
             onChange={this.handleChange}
             type="email"
             id="email"
-            aria-describedby="emailHelp"
             placeholder="Email"
           />
           {this.state.errors.email && (
@@ -94,13 +93,12 @@ class SignUp extends Component {
 
           <input
             className="form-input"
-            value={this.state.account.username}
-            name="username"
+            value={this.state.account.name}
+            name="name"
             onChange={this.handleChange}
             type="text"
-            id="username"
-            aria-describedby="emailHelp"
-            placeholder="Username"
+            id="name"
+            placeholder="Name"
           />
           {this.state.errors.username && (
             <div className="alert alert-danger">

@@ -1,18 +1,30 @@
 import React, { Component } from "react";
 import "./addMovie.css";
+import axios from "axios";
 
 class AddMovie extends Component {
+  // state = {
+  //   account: {
+  //     title: "",
+  //     image: "",
+  //     content: "",
+  //   },
+  //   errors: {},
+  // };
   state = {
-    account: {
-      titlePL: "",
-      titleEN: "",
-      year: "",
-      poster: "",
-      genre: "",
-      director: "",
+    movie: {
+      title: "",
+      image: "",
+      content: "",
     },
     errors: {},
   };
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleChangeRoute = () => {
     this.props.history.push("/");
@@ -22,28 +34,40 @@ class AddMovie extends Component {
   validate = () => {
     const errors = {};
 
-    const { account } = this.state;
-    if (account.titlePL.trim() === "") {
-      errors.titlePL = "Polish title is required!";
+    const { movie } = this.state;
+    if (movie.title === "") {
+      errors.title = "Title is required!";
     }
-    if (account.titleEN.trim() === "") {
-      errors.titleEN = "English title is required!";
+
+    if (movie.image === "") {
+      errors.image = "Poster is required!";
     }
-    if (account.year.trim() === "") {
-      errors.year = "Year is required!";
-    }
-    if (account.poster.trim() === "") {
-      errors.poster = "Poster title is required!";
-    }
-    if (account.genre.trim() === "") {
-      errors.genre = "Genre title is required!";
-    }
-    if (account.director.trim() === "") {
-      errors.director = "Director title is required!";
+
+    if (movie.content.trim() === "") {
+      errors.content = "Description is required!";
     }
 
     return Object.keys(errors).length === 0 ? null : errors;
   };
+
+  // validate = () => {
+  //   const errors = {};
+
+  //   const { account } = this.state;
+  //   if (account.title.trim() === "") {
+  //     errors.title = "Email is required!";
+  //   }
+
+  //   if (account.image.trim() === "") {
+  //     errors.image = "Name is required!";
+  //   }
+
+  //   if (account.content.trim() === "") {
+  //     errors.content = "Password is required!";
+  //   }
+
+  //   return Object.keys(errors).length === 0 ? null : errors;
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -51,12 +75,47 @@ class AddMovie extends Component {
     const errors = this.validate();
     this.setState({ errors: errors || {} });
     if (errors) return;
+
+    axios({
+      method: "post",
+      url: "https://pr-movies.herokuapp.com/api/movies",
+      data: {
+        title: this.state.movie.title,
+        image: this.state.movie.image,
+        content: this.state.movie.content,
+      },
+    })
+      .then((response) => {
+        this.handleChangeRoute();
+      })
+      .catch((error) => {
+        const errors = {};
+        this.setState({ errors: errors || {} });
+        console.log(error);
+      });
+    // axios({
+    //   method: "post",
+    //   url: "https://pr-movies.herokuapp.com/api/movies",
+    //   data: {
+    //     title: this.state.account.title,
+    //     image: this.state.account.image,
+    //     content: this.state.account.content,
+    //   },
+    // })
+    //   .then((response) => {
+    //     this.handleChangeRoute();
+    //   })
+    //   .catch((error) => {
+    //     const errors = {};
+    //     this.setState({ errors: errors || {} });
+    //     console.log(error);
+    //   });
   };
 
   handleChange = (event) => {
-    const account = { ...this.state.account };
-    account[event.currentTarget.name] = event.currentTarget.value;
-    this.setState({ account });
+    const movie = { ...this.state.movie };
+    movie[event.currentTarget.name] = event.currentTarget.value;
+    this.setState({ movie });
   };
 
   render() {
@@ -66,84 +125,39 @@ class AddMovie extends Component {
         <form onSubmit={this.handleSubmit} className="add_form_container">
           <input
             className="form-input"
-            value={this.state.account.titlePL}
-            name="titlePL"
+            value={this.state.movie.title}
+            name="title"
             onChange={this.handleChange}
             type="text"
-            id="titlePL"
-            placeholder="Polish title"
+            placeholder="Title"
           />
-          {this.state.errors.titlePL && (
+          {this.state.errors.title && (
+            <div className="alert alert-danger">{this.state.errors.title}</div>
+          )}
+
+          <input
+            className="form-input"
+            value={this.state.movie.image}
+            name="image"
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Poster url"
+          />
+          {this.state.errors.image && (
+            <div className="alert alert-danger">{this.state.errors.image}</div>
+          )}
+
+          <input
+            className="form-input"
+            value={this.state.movie.content}
+            name="content"
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Description"
+          />
+          {this.state.errors.content && (
             <div className="alert alert-danger">
-              {this.state.errors.titlePL}
-            </div>
-          )}
-
-          <input
-            className="form-input"
-            value={this.state.account.titleEN}
-            name="titleEN"
-            onChange={this.handleChange}
-            type="text"
-            id="titleEN"
-            placeholder="English title"
-          />
-          {this.state.errors.titleEN && (
-            <div className="alert alert-danger">
-              {this.state.errors.titleEN}
-            </div>
-          )}
-
-          <input
-            className="form-input"
-            value={this.state.account.year}
-            name="year"
-            onChange={this.handleChange}
-            type="text"
-            id="year"
-            placeholder="Year"
-          />
-          {this.state.errors.year && (
-            <div className="alert alert-danger">{this.state.errors.year}</div>
-          )}
-
-          <input
-            className="form-input"
-            value={this.state.account.poster}
-            name="poster"
-            onChange={this.handleChange}
-            type="text"
-            id="poster"
-            placeholder="Poster URL"
-          />
-          {this.state.errors.poster && (
-            <div className="alert alert-danger">{this.state.errors.poster}</div>
-          )}
-          <input
-            className="form-input"
-            value={this.state.account.genre}
-            name="genre"
-            onChange={this.handleChange}
-            type="text"
-            id="genre"
-            placeholder="Genre"
-          />
-          {this.state.errors.genre && (
-            <div className="alert alert-danger">{this.state.errors.genre}</div>
-          )}
-
-          <input
-            className="form-input"
-            value={this.state.account.director}
-            name="director"
-            onChange={this.handleChange}
-            type="text"
-            id="director"
-            placeholder="Director"
-          />
-          {this.state.errors.director && (
-            <div className="alert alert-danger">
-              {this.state.errors.director}
+              {this.state.errors.content}
             </div>
           )}
 
@@ -157,5 +171,58 @@ class AddMovie extends Component {
     );
   }
 }
+//   render() {
+//     return (
+//       <div className="add_container">
+//         <h1>Add movie</h1>
+//         <form onSubmit={this.handleSubmit} className="add_form_container">
+//           <input
+//             className="form-input"
+//             value={this.state.account.title}
+//             name="title"
+//             onChange={this.handleChange}
+//             type="text"
+//             placeholder="Title"
+//           />
+//           {this.state.errors.title && (
+//             <div className="alert alert-danger">{this.state.errors.title}</div>
+//           )}
+
+//           <input
+//             className="form-input"
+//             value={this.state.account.image}
+//             name="image"
+//             onChange={this.handleChange}
+//             type="text"
+//             placeholder="Poster url"
+//           />
+//           {this.state.errors.image && (
+//             <div className="alert alert-danger">{this.state.errors.image}</div>
+//           )}
+
+//           <input
+//             className="form-input"
+//             value={this.state.account.content}
+//             name="content"
+//             onChange={this.handleChange}
+//             type="text"
+//             placeholder="Description"
+//           />
+//           {this.state.errors.content && (
+//             <div className="alert alert-danger">
+//               {this.state.errors.content}
+//             </div>
+//           )}
+
+//           <div className="buttons-add">
+//             <button type="submit" className="add-btn">
+//               Add movie
+//             </button>
+//           </div>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
 
 export default AddMovie;

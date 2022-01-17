@@ -8,7 +8,7 @@
   width: 100%;
   height: 10rem;
   margin-bottom: 2rem;
-  border-bottom: 1.5px solid #ffcc00;
+  border-bottom: 1.5px solid #feb415;
 }
 
 .container {
@@ -26,10 +26,14 @@
 
 .footer {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 3.2rem;
-  text-align: center;
   margin-top: 1rem;
-  border-top: 1.5px solid #ffcc00;
+  border-top: 1.5px solid #feb415;
   background-color: #333;
+  font-weight: bold;
+  font-size: 16px;
 }

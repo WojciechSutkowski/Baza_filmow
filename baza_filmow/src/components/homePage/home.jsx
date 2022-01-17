@@ -1,50 +1,41 @@
 import React, { Component } from "react";
-import MoviesContainer from "./moviesContainer/moviesContainer";
+import Movie from "../movie/movie";
 
 class Home extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      error: null,
+      movies: [],
       isLoaded: false,
-      items: [],
     };
   }
 
   componentDidMount() {
-    const path = "http://localhost:8000/movies";
-    fetch(path)
+    fetch("https://pr-movies.herokuapp.com/api/movies")
       .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result,
-          });
-          console.log(result);
-        },
-
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
+      .then((json) => {
+        this.setState({
+          movies: json,
+          isLoaded: true,
+        });
+      });
   }
 
   render() {
-    const { items } = this.state;
+    const { isLoaded, movies } = this.state;
 
-    if (!items.length) {
-      return <p>Brak filmów</p>;
+    if (!isLoaded) {
+      return <p>Loading...</p>;
     }
-
-    const movies = items;
 
     return (
       <React.Fragment>
-        <MoviesContainer items={movies} />
+        <div className="contents">
+          {movies.reverse().map((movie) => (
+            <Movie title={movie.title} image={movie.image} id={movie.id} />
+          ))}
+        </div>
       </React.Fragment>
     );
   }

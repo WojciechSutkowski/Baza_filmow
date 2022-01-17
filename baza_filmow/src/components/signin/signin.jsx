@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import "./signin.css";
-
 const axios = require("axios");
 
 class SignIn extends Component {
@@ -41,7 +40,7 @@ class SignIn extends Component {
 
     axios({
       method: "post",
-      url: "http://localhost:3001/api/user/auth",
+      url: "https://pr-movies.herokuapp.com/api/user/auth",
       data: {
         login: this.state.account.username,
         password: this.state.account.password,

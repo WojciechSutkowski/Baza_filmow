@@ -50,25 +50,6 @@ class AddMovie extends Component {
     return Object.keys(errors).length === 0 ? null : errors;
   };
 
-  // validate = () => {
-  //   const errors = {};
-
-  //   const { account } = this.state;
-  //   if (account.title.trim() === "") {
-  //     errors.title = "Email is required!";
-  //   }
-
-  //   if (account.image.trim() === "") {
-  //     errors.image = "Name is required!";
-  //   }
-
-  //   if (account.content.trim() === "") {
-  //     errors.content = "Password is required!";
-  //   }
-
-  //   return Object.keys(errors).length === 0 ? null : errors;
-  // };
-
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -93,23 +74,6 @@ class AddMovie extends Component {
         this.setState({ errors: errors || {} });
         console.log(error);
       });
-    // axios({
-    //   method: "post",
-    //   url: "https://pr-movies.herokuapp.com/api/movies",
-    //   data: {
-    //     title: this.state.account.title,
-    //     image: this.state.account.image,
-    //     content: this.state.account.content,
-    //   },
-    // })
-    //   .then((response) => {
-    //     this.handleChangeRoute();
-    //   })
-    //   .catch((error) => {
-    //     const errors = {};
-    //     this.setState({ errors: errors || {} });
-    //     console.log(error);
-    //   });
   };
 
   handleChange = (event) => {

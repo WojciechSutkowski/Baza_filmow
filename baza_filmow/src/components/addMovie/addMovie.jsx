@@ -3,14 +3,6 @@ import "./addMovie.css";
 import axios from "axios";
 
 class AddMovie extends Component {
-  // state = {
-  //   account: {
-  //     title: "",
-  //     image: "",
-  //     content: "",
-  //   },
-  //   errors: {},
-  // };
   state = {
     movie: {
       title: "",
@@ -135,58 +127,5 @@ class AddMovie extends Component {
     );
   }
 }
-//   render() {
-//     return (
-//       <div className="add_container">
-//         <h1>Add movie</h1>
-//         <form onSubmit={this.handleSubmit} className="add_form_container">
-//           <input
-//             className="form-input"
-//             value={this.state.account.title}
-//             name="title"
-//             onChange={this.handleChange}
-//             type="text"
-//             placeholder="Title"
-//           />
-//           {this.state.errors.title && (
-//             <div className="alert alert-danger">{this.state.errors.title}</div>
-//           )}
-
-//           <input
-//             className="form-input"
-//             value={this.state.account.image}
-//             name="image"
-//             onChange={this.handleChange}
-//             type="text"
-//             placeholder="Poster url"
-//           />
-//           {this.state.errors.image && (
-//             <div className="alert alert-danger">{this.state.errors.image}</div>
-//           )}
-
-//           <input
-//             className="form-input"
-//             value={this.state.account.content}
-//             name="content"
-//             onChange={this.handleChange}
-//             type="text"
-//             placeholder="Description"
-//           />
-//           {this.state.errors.content && (
-//             <div className="alert alert-danger">
-//               {this.state.errors.content}
-//             </div>
-//           )}
-
-//           <div className="buttons-add">
-//             <button type="submit" className="add-btn">
-//               Add movie
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
 
 export default AddMovie;

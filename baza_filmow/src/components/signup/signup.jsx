@@ -100,10 +100,8 @@ class SignUp extends Component {
             id="name"
             placeholder="Name"
           />
-          {this.state.errors.username && (
-            <div className="alert alert-danger">
-              {this.state.errors.username}
-            </div>
+          {this.state.errors.name && (
+            <div className="alert alert-danger">{this.state.errors.name}</div>
           )}
 
           <input
